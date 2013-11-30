@@ -41,7 +41,8 @@ class NodesController < ApplicationController
   # PATCH/PUT /nodes/1.json
   def update
     respond_to do |format|
-      if @node.update(node_params)
+      @node.attributes = node_params
+      if @node.update
         format.html { redirect_to @node, notice: 'Node was successfully updated.' }
         format.json { head :no_content }
       else
@@ -61,6 +62,10 @@ class NodesController < ApplicationController
     end
   end
 
+  def tags
+    @nodes = Node.with_any_tags(params[:tags])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_node
@@ -69,6 +74,7 @@ class NodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def node_params
-      params.require(:node).permit(:link)
+      # params.require(:node).permit(:link, tags: [])
+      params.require(:node).permit!
     end
 end

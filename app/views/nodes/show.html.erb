@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Link:</strong>
-  <%= @node.link %>
+	<strong>Link:</strong>
+	<%= @node.link %>
+</p>
+
+<p>
+	<strong>Tags:</strong>
+	<%= @node.tags.each do |tag| %>
+		<%= link_to tag, tags_for_nodes_path(tag) %>
+	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_node_path(@node) %> |

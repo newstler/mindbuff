@@ -60,6 +60,7 @@ gem "mongoid", git: "https://github.com/mongoid/mongoid.git"
 gem 'mongoid_slug'
 gem "mongoid_session_store", git: "https://github.com/avaranovich/mongoid_session_store.git"
 # gem 'mongoid-audit', git: "https://github.com/rs-pro/mongoid-audit.git"
+gem 'mongoid-tags-arent-hard'
 
 
 # Meta tags

@@ -1,8 +1,11 @@
 class Node
 	include Mongoid::Document
 	include Mongoid::Timestamps
+	include Mongoid::TagsArentHard
 
 	include AutoHtmlFor
+
+	has_and_belongs_to_many :nodes, class_name: "Node", inverse_of: :nodes, autosave: true
 
 	field :link
 
@@ -34,4 +37,6 @@ class Node
 
 		link target: "_blank", rel: "nofollow"
 	end
+
+	taggable_with :tags
 end
