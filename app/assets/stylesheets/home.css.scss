@@ -1,3 +1,28 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	background: url(back.jpg), #333;
+	font-family: "myriad pro", "pt sans", arial;
+}
+.wrapper{
+	background: #fff;
+	max-width: 600px;
+	overflow:hidden;
+	margin:10% auto;
+	min-height:200px;
+	position:relative;
+}
+.logo{
+	float:left;
+	margin:20px 10px;
+}
+.home-description{
+	font-size:large;
+	margin:30px 10px;
+}
+.button-fb{
+	position:absolute;
+	bottom:10px;
+	right:10px;
+}
