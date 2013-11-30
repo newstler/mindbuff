@@ -1,12 +1,13 @@
-<div class = 'wrapper'>
-	<div class = "logo">
-		<%= image_tag "logo.png"%>
-	</div>
-	<div class= 'home-description'>
-		Рекурсивное вдохновение на каждый день.
-	</div>
-	<div class = "button-fb">
-		<%= link_to (image_tag "fb.jpg"), user_omniauth_authorize_path(:facebook) %>
-	</div>
+<div class = 'landing-background'>
+	<div class = 'wrapper'>
+		<div class = "logo">
+			<%= image_tag "logo.png"%>
+		</div>
+		<div class= 'home-description'>
+			Рекурсивное вдохновение на каждый день.
+		</div>
+		<div class = "button-fb">
+			<%= link_to (image_tag "fb.jpg"), user_omniauth_authorize_path(:facebook) %>
+		</div>
 </div>
 
