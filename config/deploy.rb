@@ -14,7 +14,7 @@ set :application, "mind_buff"
 set :domain, "robotinthecloak.com"
 set :deploy_to, "/home/ubuntu/rails_apps/#{application}"
 set :repository, "https://github.com/newstler/mindbuff.git"
-set :branch, "deploy"
+set :branch, "develop"
 
 set :term_mode, :system
 # set :bundle_bin, "/home/ubuntu/.rvm/gems/ruby-1.9.3-p125/gems/bundler-1.1.3/bin/bundle"
