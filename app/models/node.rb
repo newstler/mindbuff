@@ -73,7 +73,7 @@ class Node
       # link: link,
       image: image,
       # tags: tags,
-      connections: Node.with_all_tags(tags).collect { |n| {id: n._id.to_s} unless n == self }.compact  # connected_to_ids.collect{ |contact| c = Attendee.find(contact); {id: c._id, slug: c.slug, name: c.name, avatar: c.avatar} },
+      connections: Node.with_any_tags(tags).collect { |n| {id: n._id.to_s} unless n == self }.compact  # connected_to_ids.collect{ |contact| c = Attendee.find(contact); {id: c._id, slug: c.slug, name: c.name, avatar: c.avatar} },
     }
   end
 end

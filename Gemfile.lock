@@ -58,6 +58,8 @@ GEM
     autoprefixer-rails (0.8.20131104)
       execjs
     bcrypt-ruby (3.1.2)
+    bootstrap-sass (3.0.2.1)
+      sass (~> 3.2)
     bson (2.0.0.rc3)
     buftok (0.2.0)
     builder (3.1.4)
@@ -82,6 +84,8 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     hashie (2.0.5)
     hashr (0.0.22)
     hike (1.2.3)
@@ -237,8 +241,10 @@ PLATFORMS
 DEPENDENCIES
   auto_html!
   autoprefixer-rails
+  bootstrap-sass (~> 3.0.2.0)
   coffee-rails (~> 4.0.0)
   devise
+  font-awesome-rails
   instagram
   jbuilder (~> 1.2)
   jquery-rails

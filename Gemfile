@@ -80,3 +80,7 @@ gem 'omniauth-facebook'
 # Social networks:
 gem 'twitter'
 gem 'instagram'
+
+# Bootstrap:
+gem 'bootstrap-sass', '~> 3.0.2.0'
+gem "font-awesome-rails"

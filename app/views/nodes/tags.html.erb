@@ -1,27 +1,21 @@
-<h1>Listing nodes</h1>
+<%= form_tag tags_for_nodes_path(), method: :get, class: "form-inline pull-right col-md-3 search_form", role: "search" do %>
+	<div class="input-group">
+		<%= text_field_tag :tags, params[:tags], placeholder: "Search", class: "form-control" %>
+		<div class="input-group-btn">
+			<%= button_tag class: "btn btn-default", type: :submit do %>
+				<i class="fa fa-search"></i>
+				Go!
+			<% end %>
+		</div>
+	</div>
+<% end %> 
 
-<table>
-  <thead>
-    <tr>
-      <th>Link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @nodes.each do |node| %>
-      <tr>
-        <td><%= node.link_html %></td>
-        <td><%= link_to 'Show', node %></td>
-        <td><%= link_to 'Edit', edit_node_path(node) %></td>
-        <td><%= link_to 'Destroy', node, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Node', new_node_path %>
+<div id="graphDiv"></div>
+<%= content_for :js do %>
+    <script type="text/javascript">
+        $(function() {
+            $.draw_nodes_graph('/nodes/tags/<%= params[:tags] %>.json');
+        });
+    </script>
+<% end %>

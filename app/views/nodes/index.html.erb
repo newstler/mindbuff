@@ -1,8 +1,13 @@
 <h1>Listing nodes</h1>
 
-<div id="graphDiv">
-</div>
-
+<div id="graphDiv"></div>
+<%= content_for :js do %>
+    <script type="text/javascript">
+        $(function() {
+            $.draw_nodes_graph('/nodes.json');
+        });
+    </script>
+<% end %>
 
 
 <table>
@@ -31,11 +36,3 @@
 
 <%= link_to 'New Node', new_node_path %>
 
-
-<%= content_for :js do %>
-    <script type="text/javascript">
-        $(function() {
-            $.draw_nodes_graph();
-        });
-    </script>
-<% end %>

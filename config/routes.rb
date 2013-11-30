@@ -1,7 +1,7 @@
 MindBuff::Application.routes.draw do
   resources :nodes do
     collection do
-      get 'tags/:tags' => 'nodes#tags', as: :tags_for
+      get 'tags/(:tags)' => 'nodes#tags', as: :tags_for
     end
   end
 
