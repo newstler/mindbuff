@@ -1,5 +1,10 @@
 <h1>Listing nodes</h1>
 
+<div id="graphDiv">
+</div>
+
+
+
 <table>
   <thead>
     <tr>
@@ -25,3 +30,12 @@
 <br>
 
 <%= link_to 'New Node', new_node_path %>
+
+
+<%= content_for :js do %>
+    <script type="text/javascript">
+        $(function() {
+            $.draw_nodes_graph();
+        });
+    </script>
+<% end %>

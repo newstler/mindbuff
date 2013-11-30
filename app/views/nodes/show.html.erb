@@ -2,15 +2,21 @@
 
 <p>
 	<strong>Link:</strong>
-	<%= @node.link %>
+	<%= @node.link_html %>
 </p>
 
 <p>
 	<strong>Tags:</strong>
-	<%= @node.tags.each do |tag| %>
+	<% @node.tags.each do |tag| %>
 		<%= link_to tag, tags_for_nodes_path(tag) %>
 	<% end %>
 </p>
+
+<% Node.with_all_tags(@node.tags).each do |node| %>
+	<%= image_tag node.image %>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_node_path(@node) %> |
 <%= link_to 'Back', nodes_path %>

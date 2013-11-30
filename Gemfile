@@ -70,8 +70,13 @@ gem 'meta-tags', :require => 'meta_tags'
 # Markdown
 gem 'redcarpet'
 gem "auto_html", git: "https://github.com/newstler/auto_html.git"
+gem "nokogiri"
 
 # auth
 gem 'omniauth' 
 gem 'devise' 
 gem 'omniauth-facebook'
+
+# Social networks:
+gem 'twitter'
+gem 'instagram'

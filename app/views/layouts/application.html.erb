@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MindBuff</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>MindBuff</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= render "layouts/header" %>
+		<%= render "layouts/header" %>
 
-<%= yield %>
+		<%= yield %>
 
-<%= render "layouts/footer" %>
+		<%= render "layouts/footer" %>
 
-</body>
+
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= yield :js %>
+
+	</body>
 </html>

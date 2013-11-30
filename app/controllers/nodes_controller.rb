@@ -5,6 +5,16 @@ class NodesController < ApplicationController
   # GET /nodes.json
   def index
     @nodes = Node.all
+
+    respond_to do |format|
+      # if current_user
+        format.html
+        format.json { render json: {success: true, nodes: @nodes.collect{ |a| a.node_for_json }}.to_json }
+      # else
+      #   format.html
+      #   format.json {render json: {success: false, message: "Unauthorized.", status: 401}.to_json}
+      # end
+    end
   end
 
   # GET /nodes/1
