@@ -81,8 +81,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mathjax-rails (1.0.3)
-      railties (>= 3.0)
     meta-tags (1.5.0)
       actionpack
     mime-types (1.25.1)
@@ -178,7 +176,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
-  mathjax-rails
   meta-tags
   mina
   mongoid!
