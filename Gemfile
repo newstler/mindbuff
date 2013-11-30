@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -36,8 +37,33 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+# Use Mina for deployment
+gem 'mina'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+# Search:
+gem "tire"
+
+
+# Unicode support for Strings class
+gem 'unicode'
+
+# MongoDB ORM
+gem "mongoid", git: "https://github.com/mongoid/mongoid.git"
+# gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'mongoid_slug'
+gem "mongoid_session_store", git: "https://github.com/avaranovich/mongoid_session_store.git"
+# gem 'mongoid-audit', git: "https://github.com/rs-pro/mongoid-audit.git"
+
+
+# Meta tags
+gem 'meta-tags', :require => 'meta_tags'
+
+
+# Markdown
+gem 'redcarpet'
+gem 'mathjax-rails'
+gem "auto_html", git: "https://github.com/newstler/auto_html.git"
