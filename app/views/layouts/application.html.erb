@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%= render "layouts/header" %>
+<%= render "layouts/header" unless controller_name=="home" %>
 
 <%= yield %>
 

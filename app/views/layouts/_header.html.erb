@@ -1,7 +1,4 @@
 <header>
-
-	<%= link_to "Sign in with Facebook", "#" %>
-	<%= link_to "Explore", "#" %>
 	<%= link_to "Nodes", :nodes %>
-	
+	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 </header>

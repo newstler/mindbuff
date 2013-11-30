@@ -6,7 +6,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require "omniauth-facebook"
-  config.omniauth :facebook, "1446721075555589", "5bebe0e1e3c4d89dc6b64e3984e13503"
+  if Rails.env == "production"
+    config.omniauth :facebook, "1446721075555589", "5bebe0e1e3c4d89dc6b64e3984e13503"
+  else
+    config.omniauth :facebook, "626552204050852", "51351d28faaa1f7b1b2c08ed0c68730b"    
+  end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
