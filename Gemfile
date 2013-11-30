@@ -80,3 +80,5 @@ gem 'omniauth-facebook'
 # Social networks:
 gem 'twitter'
 gem 'instagram'
+
+gem 'flickraw'

@@ -82,6 +82,7 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    flickraw (0.9.7)
     hashie (2.0.5)
     hashr (0.0.22)
     hike (1.2.3)
@@ -239,6 +240,7 @@ DEPENDENCIES
   autoprefixer-rails
   coffee-rails (~> 4.0.0)
   devise
+  flickraw
   instagram
   jbuilder (~> 1.2)
   jquery-rails

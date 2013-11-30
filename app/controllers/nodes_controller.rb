@@ -1,11 +1,15 @@
 class NodesController < ApplicationController
+  require 'flickraw'
+
   before_action :set_node, only: [:show, :edit, :update, :destroy]
 
   # GET /nodes
   # GET /nodes.json
   def index
     @nodes = Node.all
-
+    p FlickrApi.photos_by_tag("banana")
+    #p FlickrApi.related_tags("blood")
+    #p FlickrApi.tags_by_static_url("http://farm4.staticflickr.com/3664/3602472096_965441f7b0.jpg")
     respond_to do |format|
       # if current_user
         format.html
@@ -94,4 +98,7 @@ class NodesController < ApplicationController
       # params.require(:node).permit(:link, tags: [])
       params.require(:node).permit!
     end
+
+    
+
 end
