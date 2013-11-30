@@ -101,6 +101,8 @@ GEM
       open4
       rake
     minitest (4.7.5)
+    mongoid-tags-arent-hard (1.1.4)
+      mongoid (>= 3.0.0)
     mongoid_slug (3.2.0)
       mongoid (> 3.0)
       stringex (~> 2.0)
@@ -211,6 +213,7 @@ DEPENDENCIES
   meta-tags
   mina
   mongoid!
+  mongoid-tags-arent-hard
   mongoid_session_store!
   mongoid_slug
   omniauth

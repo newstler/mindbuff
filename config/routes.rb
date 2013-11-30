@@ -1,4 +1,10 @@
 MindBuff::Application.routes.draw do
+  resources :nodes do
+    collection do
+      get 'tags/:tags' => 'nodes#tags', as: :tags_for
+    end
+  end
+
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
