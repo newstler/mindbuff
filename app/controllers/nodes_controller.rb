@@ -24,7 +24,14 @@ class NodesController < ApplicationController
   # POST /nodes
   # POST /nodes.json
   def create
-    @node = Node.new(node_params)
+    existing_node = Node.where(link: node_params[:link]).first
+
+    unless existing_node
+      @node = Node.new(node_params)
+    else
+      @node = existing_node
+      @node.tags << node_params[:tags]
+    end
 
     respond_to do |format|
       if @node.save
