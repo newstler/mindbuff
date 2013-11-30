@@ -68,5 +68,5 @@ gem 'meta-tags', :require => 'meta_tags'
 
 # Markdown
 gem 'redcarpet'
-gem 'mathjax-rails'
+# gem 'mathjax-rails'
 gem "auto_html", git: "https://github.com/newstler/auto_html.git"
