@@ -53,7 +53,7 @@ class Node
 			unless where(image_id: item.id).any?
 				create!(
 					image_id: item.id,
-					image_url: item.images.low_resolution.url,
+					image: item.images.low_resolution.url,
 					likes_count: item.likes.count,
 					link_url: item.link
 				)

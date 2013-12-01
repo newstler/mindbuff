@@ -1,31 +1,45 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-	background: url(back.jpg), #333;
-	font-family: "myriad pro", "pt sans", arial;
-}
-.wrapper{
-	background: #fff;
-	max-width: 600px;
-	overflow:hidden;
-	margin:10% auto;
-	min-height:200px;
-	position:relative;
-}
-.logo{
-	float:left;
-	margin:20px 10px;
-}
-.home-description{
-	font-size:large;
-	margin:30px 10px;
-}
-.button-fb{
-	position:absolute;
-	bottom:10px;
-	right:10px;
-}
+
+
+// Import Bootstrap:
+@import "bootstrap";
+
+// body{
+// 	background:#fff;
+// 	font-family: "myriad pro", "pt sans", arial, sans-serif;
+// 	margin:0;
+// }
+
+
+// .image-background{
+// 	background: url(back.jpg), #333;
+// 	position:absolute;
+// 	width:100%;
+// 	height:100%;
+// }
+// .wrapper{
+// 	background: #fff;
+// 	max-width: 600px;
+// 	overflow:hidden;
+// 	margin:15% auto;
+// 	min-height:200px;
+// 	position:relative;
+// }
+// .logo{
+// 	float:left;
+// 	margin:20px 10px;
+// }
+// .home-description{
+// 	font-size:large;
+// 	margin:30px 10px;
+// }
+// .button-fb{
+// 	position:absolute;
+// 	bottom:10px;
+// 	right:10px;
+// }
 
 table {
 	img {
@@ -38,4 +52,13 @@ svg {
 	image {
 		margin: 50px;
 	}
+	border:none;
+}
+
+footer{
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	width:99%;
+	color:#777;
 }

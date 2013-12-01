@@ -2,12 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$ ->
+  $('svg').find('g').attr("transform", "scale(2)")
 
 $.draw_nodes_graph = (path) ->
   graph = Viva.Graph.graph()
 
   graphics = Viva.Graph.View.svgGraphics()
-  nodeSize = 34
+  nodeSize = 57
 
   $.getJSON path, (data) ->
     $.each data["nodes"], (i, item) ->
@@ -27,11 +29,11 @@ $.draw_nodes_graph = (path) ->
     # ui.append svgText
     ui.append img
     
-    # $(ui).hover (->
-    #   highlightRelatedNodes node.id, true
+    $(ui).hover (->
+      highlightRelatedNodes node.id, true
     #   ui.children("text")[0].attr("display", "block")
-    # ), ->
-    #   highlightRelatedNodes node.id, false
+    ), ->
+      highlightRelatedNodes node.id, false
     #   ui.children("text")[0].attr("display", "none")
 
     # $(ui).children("text").hover (->
@@ -47,10 +49,10 @@ $.draw_nodes_graph = (path) ->
 
 
   layout = Viva.Graph.Layout.forceDirected graph,
-    springLength : 1000,
-    springCoeff : 10.0005,
+    springLength : 10,
+    springCoeff : 0.0005,
     dragCoeff : 0.02,
-    gravity : -0.8
+    gravity : -1.2
 
   renderer = Viva.Graph.View.renderer graph,
     graphics: graphics

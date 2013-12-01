@@ -4,7 +4,7 @@ class NodesController < ApplicationController
   # GET /nodes
   # GET /nodes.json
   def index
-    @nodes = Node.all
+    params[:tags] ? @nodes = Node.with_any_tags(params[:tags]) : @nodes = Node.all
 
     respond_to do |format|
       # if current_user
@@ -45,7 +45,7 @@ class NodesController < ApplicationController
 
     respond_to do |format|
       if @node.save
-        format.html { redirect_to @node, notice: 'Node was successfully created.' }
+        format.html { redirect_to :nodes, notice: 'Node was successfully created.' }
         format.json { render action: 'show', status: :created, location: @node }
       else
         format.html { render action: 'new' }
