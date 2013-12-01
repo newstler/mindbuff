@@ -77,8 +77,12 @@ class Node
 	    }
 	end
 
-	def self.nodes_for_json(nodes)
-		{ success: true, nodes: nodes.collect { |n| { id: n._id.to_s, image: n.image, connections: nodes.collect { |c| {id: c._id.to_s} if nodes.include?(c) && c.connected_to?(n) }.compact } }.compact }.to_json
+	def self.nodes_for_json(nodes, tag)
+		{ success: true, nodes: nodes.collect { |n| { id: n._id.to_s, image: n.image, connections: nodes.collect { |c| {id: c._id.to_s} if c.connected_to_without_tag?(n, tag) }.compact } }.compact }.to_json
+	end
+
+	def self.sort_by_connections_quantity
+
 	end
 
 	def to_indexed_json
@@ -90,11 +94,15 @@ class Node
 		Node.with_any_tags(tags).collect{ |n| { id: n._id.to_s } if n != self }
 	end
 
+	def connections_to(node)
+		self.tags & node.tags
+	end
+
 	def connected_to?(node)
 		connections_to(node).any?
 	end
 
-	def connections_to(node)
-		self.tags & node.tags
+	def connected_to_without_tag?(node, tag)
+		(connections_to(node) - [tag]).any?
 	end
 end
