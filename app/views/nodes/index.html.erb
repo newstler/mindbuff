@@ -2,10 +2,9 @@
 <%= content_for :js do %>
     <script type="text/javascript">
         $(function() {
-            $.draw_nodes_graph('/nodes.json');
+            $.draw_nodes_graph('/nodes.json?tags=<%= params[:tags] %>');
         });
     </script>
 <% end %>
-
 
 

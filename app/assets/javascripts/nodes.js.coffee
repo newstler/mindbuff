@@ -9,14 +9,14 @@ $.draw_nodes_graph = (path) ->
   graph = Viva.Graph.graph()
 
   graphics = Viva.Graph.View.svgGraphics()
-  nodeSize = 57
+  nodeSize = 100
 
   $.getJSON path, (data) ->
     $.each data["nodes"], (i, item) ->
       graph.addNode(item.id, { image: item.image })
     $.each data["nodes"], (i, item) ->
       $.each item.connections, (i, connection) ->
-        # alert connection.id
+        alert connection.id
         graph.addLink(item.id, connection.id)
 
   graphics.node((node) ->
@@ -49,10 +49,10 @@ $.draw_nodes_graph = (path) ->
 
 
   layout = Viva.Graph.Layout.forceDirected graph,
-    springLength : 10,
-    springCoeff : 0.0005,
+    springLength : 1000,
+    springCoeff : 10.0005,
     dragCoeff : 0.02,
-    gravity : -1.2
+    gravity : -0.8
 
   renderer = Viva.Graph.View.renderer graph,
     graphics: graphics
