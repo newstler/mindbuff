@@ -7,8 +7,8 @@ class FlickrApi
   ##TODO?: can take second argument cluster_id as "banana/orange/apple" - three tags
   def self.photos_by_tag tag
     FlickrApi.initialize_api_key
-    list = flickr.tags.getClusterPhotos(:tag => tag).to_a[0..6]
-    list.collect {|el| { image: "http://farm#{el.farm}.staticflickr.com/#{el.server}/#{el.id}_#{el.secret}_m.jpg", tags: get_tags(el.id)} }
+    list = flickr.tags.getClusterPhotos(:tag => tag) #.to_a[0..6]
+    list.collect {|el| { image: "http://farm#{el.farm}.staticflickr.com/#{el.server}/#{el.id}_#{el.secret}_s.jpg", tags: get_tags(el.id)} }
   end
 
   def self.photos_by_tags tags

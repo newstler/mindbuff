@@ -9,7 +9,7 @@ $.draw_nodes_graph = (path) ->
   graph = Viva.Graph.graph()
 
   graphics = Viva.Graph.View.svgGraphics()
-  nodeSize = 200
+  nodeSize = 45
 
   $.getJSON path, (data) ->
     $.each data["nodes"], (i, item) ->
@@ -17,7 +17,7 @@ $.draw_nodes_graph = (path) ->
     $.each data["nodes"], (i, item) ->
       $.each item.connections, (i, connection) ->
         # alert connection.id
-        graph.addLink(item.id, connection.id) unless g.forEachNode () -> connection.id == false
+        graph.addLink(item.id, connection.id)
 
   graphics.node((node) ->
     #//ui = Viva.Graph.svg("image").attr("width", nodeSize).attr("height", nodeSize).link(node.data)

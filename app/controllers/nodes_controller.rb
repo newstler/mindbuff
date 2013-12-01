@@ -7,11 +7,13 @@ class NodesController < ApplicationController
   # GET /nodes.json
   def index
     if params[:tags].present?
-      @photos = FlickrApi.photos_by_tag(params[:tags])
-      FlickrApi.photos_by_tag(params[:tags]).each do |photo|
-        Node.create!(link: photo[:image], tags: photo[:tags]) unless Node.where(link: photo[:image]).any?
+      params[:tags].split(",").each do |tag|
+        @photos = FlickrApi.photos_by_tag(tag)
+        FlickrApi.photos_by_tag(tag).each do |photo|
+          Node.create!(link: photo[:image], tags: photo[:tags]) unless Node.where(link: photo[:image]).any?
+        end
       end
-      @nodes = Node.with_any_tags(params[:tags]).to_a[0..6]
+      @nodes = Node.with_any_tags(params[:tags]) #.to_a[0..6]
     else
       @nodes = Node.all
     end
