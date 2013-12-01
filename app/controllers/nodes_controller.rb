@@ -6,12 +6,18 @@ class NodesController < ApplicationController
   # GET /nodes
   # GET /nodes.json
   def index
-    params[:tags] ? @nodes = Node.with_any_tags(params[:tags]) : @nodes = Node.all
+    if params[:tags] 
+      FlickrApi.photos_by_tag(params[:tags]).each do |photo|
+        Node.create!(link: photo, tags: params[:tags]) unless Node.where(link: photo).any?
+      end
+      @nodes = Node.with_any_tags(params[:tags])
+    else
+      @nodes = Node.all
+    end
 
-    p FlickrApi.photos_by_tag("banana")
     #p FlickrApi.related_tags("blood")
     #p FlickrApi.tags_by_static_url("http://farm4.staticflickr.com/3664/3602472096_965441f7b0.jpg")
-    
+
     respond_to do |format|
       # if current_user
         format.html
