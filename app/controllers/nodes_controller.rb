@@ -1,20 +1,17 @@
 class NodesController < ApplicationController
-  require 'flickraw'
+  # require 'flickraw'
 
   before_action :set_node, only: [:show, :edit, :update, :destroy]
 
   # GET /nodes
   # GET /nodes.json
   def index
-<<<<<<< HEAD
     params[:tags] ? @nodes = Node.with_any_tags(params[:tags]) : @nodes = Node.all
 
-=======
-    @nodes = Node.all
     p FlickrApi.photos_by_tag("banana")
     #p FlickrApi.related_tags("blood")
     #p FlickrApi.tags_by_static_url("http://farm4.staticflickr.com/3664/3602472096_965441f7b0.jpg")
->>>>>>> 46fa47529e1ddbe0be7d358e3a96889d78cfa3c8
+    
     respond_to do |format|
       # if current_user
         format.html
