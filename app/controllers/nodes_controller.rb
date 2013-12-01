@@ -6,12 +6,12 @@ class NodesController < ApplicationController
   # GET /nodes
   # GET /nodes.json
   def index
-    if params[:tags] 
+    if params[:tags].present?
       @photos = FlickrApi.photos_by_tag(params[:tags])
       FlickrApi.photos_by_tag(params[:tags]).each do |photo|
         Node.create!(link: photo[:image], tags: photo[:tags]) unless Node.where(link: photo[:image]).any?
       end
-      @nodes = Node.with_any_tags(params[:tags]) #.to_a[0..6]
+      @nodes = Node.with_any_tags(params[:tags]).to_a[0..6]
     else
       @nodes = Node.all
     end
@@ -22,7 +22,7 @@ class NodesController < ApplicationController
     respond_to do |format|
       # if current_user
         format.html
-        format.json { render json: {success: true, nodes: @nodes.collect{ |a| a.node_for_json }}.to_json }
+        format.json { render json: Node.nodes_for_json(@nodes) }
       # else
       #   format.html
       #   format.json {render json: {success: false, message: "Unauthorized.", status: 401}.to_json}

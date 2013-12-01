@@ -9,15 +9,15 @@ $.draw_nodes_graph = (path) ->
   graph = Viva.Graph.graph()
 
   graphics = Viva.Graph.View.svgGraphics()
-  nodeSize = 100
+  nodeSize = 200
 
   $.getJSON path, (data) ->
     $.each data["nodes"], (i, item) ->
       graph.addNode(item.id, { image: item.image })
     $.each data["nodes"], (i, item) ->
       $.each item.connections, (i, connection) ->
-        alert connection.id
-        graph.addLink(item.id, connection.id)
+        # alert connection.id
+        graph.addLink(item.id, connection.id) unless g.forEachNode () -> connection.id == false
 
   graphics.node((node) ->
     #//ui = Viva.Graph.svg("image").attr("width", nodeSize).attr("height", nodeSize).link(node.data)
@@ -29,11 +29,11 @@ $.draw_nodes_graph = (path) ->
     # ui.append svgText
     ui.append img
     
-    $(ui).hover (->
-      highlightRelatedNodes node.id, true
+    # $(ui).hover (->
+      # highlightRelatedNodes node.id, true
     #   ui.children("text")[0].attr("display", "block")
-    ), ->
-      highlightRelatedNodes node.id, false
+    # ), ->
+      # highlightRelatedNodes node.id, false
     #   ui.children("text")[0].attr("display", "none")
 
     # $(ui).children("text").hover (->

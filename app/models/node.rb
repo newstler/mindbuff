@@ -68,12 +68,33 @@ class Node
 	end
 
 	def node_for_json
-    {
-      id: _id.to_s,
-      # link: link,
-      image: image,
-      # tags: tags,
-      connections: Node.with_any_tags(tags).collect { |n| {id: n._id.to_s} unless n == self }.compact  # connected_to_ids.collect{ |contact| c = Attendee.find(contact); {id: c._id, slug: c.slug, name: c.name, avatar: c.avatar} },
-    }
-  end
+	    {
+	      id: _id.to_s,
+	      # link: link,
+	      image: image,
+	      # tags: tags,
+	      connections: Node.with_any_tags(tags).collect { |n| {id: n._id.to_s} unless n == self }.compact #.to_json  # connected_to_ids.collect{ |contact| c = Attendee.find(contact); {id: c._id, slug: c.slug, name: c.name, avatar: c.avatar} },
+	    }
+	end
+
+	def self.nodes_for_json(nodes)
+		{ success: true, nodes: nodes.collect { |n| { id: n._id.to_s, image: n.image, connections: nodes.collect { |c| {id: c._id.to_s} if nodes.include?(c) && c.connected_to?(n) }.compact } }.compact }.to_json
+	end
+
+	def to_indexed_json
+	    # to_json(methods: [:first_name, :second_name, :last_name, :address, :phone]).gsub( /\{\"\$oid\"\:(\".{24}\")\}/ ) { $1 }
+	    to_json(methods: [:id, :image, :connections]).gsub( /\{\"\$oid\"\:(\".{24}\")\}/ ) { $1 }
+	end
+
+	def connections
+		Node.with_any_tags(tags).collect{ |n| { id: n._id.to_s } if n != self }
+	end
+
+	def connected_to?(node)
+		connections_to(node).any?
+	end
+
+	def connections_to(node)
+		self.tags & node.tags
+	end
 end
