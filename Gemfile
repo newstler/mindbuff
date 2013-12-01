@@ -85,5 +85,4 @@ gem 'instagram'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem "font-awesome-rails"
 
-# d3.js
-gem "d3-rails"
+gem 'flickraw'
